@@ -1,4 +1,4 @@
-﻿using Photon.Pun;
+using Photon.Pun;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,13 +17,13 @@ namespace TestMod.Drawing
         private static readonly Random random = new Random(Environment.TickCount);
 
         private static readonly int windowIDKeybinds = random.Next(int.MaxValue);
-        private static Rect windowRectKeybinds = new Rect(5f, 5f, 200f, 300f);
+        private static Rect windowRectKeybinds = new Rect(205f, 5f, 200f, 70f);
 
         private static readonly int windowIDGeneral = random.Next(int.MaxValue);
         private static Rect windowRectGeneral = new Rect(405f, 5f, 200f, 50f);
 
         private static readonly int windowIDESP = random.Next(int.MaxValue);
-        private static Rect windowRectESP = new Rect(205f, 5f, 200f, 50f);
+        private static Rect windowRectESP = new Rect(5f, 5f, 200f, 50f);
 
         private static readonly int windowIDStats = random.Next(int.MaxValue);
         private static Rect windowRectStats = new Rect(Screen.width - 210f, 5f, 200f, 50f);
@@ -121,10 +121,10 @@ namespace TestMod.Drawing
             toggleText = UIHelper.MakeEnable("Ghost name ", CT.ghostNameESP);
             CT.ghostNameESP = GUILayout.Toggle(CT.ghostNameESP, toggleText, default);
 
-            GUILayout.Label("Crosshair scale:", default);
+            GUILayout.Label($"Crosshair scale: {ESP.crosshairScale}", default);
             ESP.crosshairScale = GUILayout.HorizontalSlider(ESP.crosshairScale, 1f, 15f, default);
 
-            GUILayout.Label("Line thickness:", default);
+            GUILayout.Label($"Line thickness: {ESP.lineThickness}", default);
             ESP.lineThickness = GUILayout.HorizontalSlider(ESP.lineThickness, 1f, 5f, default);
 
             GUI.DragWindow();
